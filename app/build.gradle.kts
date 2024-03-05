@@ -2,7 +2,11 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 }
-
+//val keystoreProperties = java.util.Properties()
+//val keystorePropertiesFile = rootProject.file("key.properties")
+//if (keystorePropertiesFile.exists()) {
+//    keystoreProperties.load(java.io.FileInputStream(keystorePropertiesFile))
+//}
 android {
     namespace = "com.example.bankingappui"
     compileSdk = 34
@@ -36,6 +40,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+//            signingConfig signingConfigs.release
         }
     }
     compileOptions {
@@ -56,6 +61,17 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    signingConfigs {
+//        release {
+//            keyAlias keystoreProperties['keyAlias']
+//            keyPassword keystoreProperties['keyPassword']
+//            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+//            storePassword keystoreProperties['storePassword']
+//        }
+    }
+
+
 }
 
 dependencies {
