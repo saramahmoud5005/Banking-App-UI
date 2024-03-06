@@ -82,33 +82,35 @@ fun FinanceItem(index:Int){
         lastPaddingEnd = 16.dp
     }
     Box(modifier = Modifier.padding(start = 16.dp, end = lastPaddingEnd))
-    Column(
-        modifier = Modifier
-            .clip(RoundedCornerShape(25.dp))
-            .background(MaterialTheme.colorScheme.secondaryContainer)
-            .size(120.dp)
-            .clickable {}
-            .padding(13.dp),
-        verticalArrangement = Arrangement.SpaceBetween
-    ) {
-        Box(
+    {
+        Column(
             modifier = Modifier
-                .clip(RoundedCornerShape(16.dp))
-                .background(finance.background)
-                .padding(6.dp)
-        ){
-            Icon(
-                imageVector = finance.icon,
-                contentDescription = finance.name,
-                tint = Color.White
+                .clip(RoundedCornerShape(25.dp))
+                .background(MaterialTheme.colorScheme.secondaryContainer)
+                .size(120.dp)
+                .clickable {}
+                .padding(13.dp),
+            verticalArrangement = Arrangement.SpaceBetween
+        ) {
+            Box(
+                modifier = Modifier
+                    .clip(RoundedCornerShape(16.dp))
+                    .background(finance.background)
+                    .padding(6.dp)
+            ){
+                Icon(
+                    imageVector = finance.icon,
+                    contentDescription = finance.name,
+                    tint = Color.White
+                )
+            }
+            Spacer(modifier = Modifier.height(5.dp))
+            Text(
+                text = finance.name,
+                fontSize = 15.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.Black
             )
         }
-        Spacer(modifier = Modifier.height(5.dp))
-        Text(
-            text = finance.name,
-            fontSize = 15.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color.Black
-        )
     }
 }

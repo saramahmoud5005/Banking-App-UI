@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -64,6 +65,24 @@ val currencyList = listOf(
         sell = 26.25f,
         icon = Icons.Rounded.CurrencyYen
     ),
+    Currency(
+        name = "USD",
+        buy = 23.35f,
+        sell = 23.25f,
+        icon = Icons.Rounded.AttachMoney
+    ),
+    Currency(
+        name = "EUR",
+        buy = 13.35f,
+        sell = 13.25f,
+        icon = Icons.Rounded.Euro
+    ),
+    Currency(
+        name = "YEN",
+        buy = 26.35f,
+        sell = 26.25f,
+        icon = Icons.Rounded.CurrencyYen
+    ),
 )
 
 @Preview
@@ -79,7 +98,7 @@ fun CurrenciesSection(){
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 32.dp),
+            .padding(top = 20.dp),
         contentAlignment = Alignment.BottomCenter
     )
     {
@@ -142,9 +161,9 @@ fun CurrenciesSection(){
                     .clip(RoundedCornerShape(topStart = 25.dp, topEnd = 25.dp))
                     .background(MaterialTheme.colorScheme.background)
             ) {
+
                 val boxWithConstraintsScope = this
                 val width = boxWithConstraintsScope.maxWidth / 3
-
 
                 Column(
                     modifier = Modifier
@@ -197,12 +216,12 @@ fun CurrencyItem(index:Int, width: Dp){
     val currency = currencyList[index]
     Row (
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(bottom = 16.dp),
-//        verticalAlignment = Alignment.CenterVertically
+            .fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
     ) {
         Row(
-            modifier = Modifier.width(width)
+            modifier = Modifier
+                .width(width)
                 .padding(bottom = 16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
