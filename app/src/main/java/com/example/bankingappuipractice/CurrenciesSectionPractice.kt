@@ -53,7 +53,7 @@ fun CurrenciesSectionPractice(){
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 10.dp),
+            .padding(top = 15.dp),
         contentAlignment = Alignment.BottomCenter
     ) {
         Column(

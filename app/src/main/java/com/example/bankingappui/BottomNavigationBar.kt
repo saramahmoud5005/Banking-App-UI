@@ -14,38 +14,60 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import com.example.bankingappui.data.BottomNavigation
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.example.bankingappui.data.BottomNavigationItem
+import com.example.bankingappuipractice.Screen
 
 val items = listOf(
-    BottomNavigation(
+    BottomNavigationItem(
         title = "Home",
-        icon = Icons.Rounded.Home
+        icon = Icons.Rounded.Home,
+        route = Screen.Home.route
     ),
-    BottomNavigation(
+    BottomNavigationItem(
         title = "Wallet",
-        icon = Icons.Rounded.Wallet
+        icon = Icons.Rounded.Wallet,
+        route = Screen.Wallet.route
     ),
-    BottomNavigation(
+    BottomNavigationItem(
         title = "Notifications",
-        icon = Icons.Rounded.Notifications
+        icon = Icons.Rounded.Notifications,
+        route = Screen.Notifications.route
     ),
-    BottomNavigation(
+    BottomNavigationItem(
         title = "Account",
-        icon = Icons.Rounded.AccountCircle
+        icon = Icons.Rounded.AccountCircle,
+        route = Screen.Account.route
     ),
 )
 
 @Composable
-fun BottomNavigationBar(){
+fun BottomNavigationBar():NavHostController{
+
+    var navigationSelectedItem by remember {
+        mutableStateOf(0)
+    }
+
+    val navController = rememberNavController()
+
     NavigationBar {
         Row (
             modifier = Modifier.background(MaterialTheme.colorScheme.inverseOnSurface)
         ){
             items.forEachIndexed { index, item ->
                 NavigationBarItem(
-                    selected = index == 0,
-                    onClick = { /*TODO*/ },
+                    selected = index == navigationSelectedItem,
+                    onClick = {
+                        navigationSelectedItem = index
+                        navController.navigate(item.route)
+                    },
                     icon = {
                         Icon(
                             imageVector = item.icon,
@@ -63,4 +85,5 @@ fun BottomNavigationBar(){
             }
         }
     }
+    return navController
 }

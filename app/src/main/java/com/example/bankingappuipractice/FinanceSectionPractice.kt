@@ -30,8 +30,8 @@ fun FinanceItemPractice(index:Int){
     Box (
         modifier = Modifier
             .clip(RoundedCornerShape(15.dp))
-            .width(140.dp)
-            .height(140.dp)
+            .width(120.dp)
+            .height(120.dp)
             .background(MaterialTheme.colorScheme.secondaryContainer)
     ){
         Column (
@@ -58,7 +58,7 @@ fun FinanceItemPractice(index:Int){
                 fontWeight = FontWeight.Bold,
                 fontSize = 15.sp,
                 color = Color.Black,
-                modifier = Modifier.padding(top = 25.dp)
+                modifier = Modifier.padding(top = 15.dp)
             )
         }
     }
