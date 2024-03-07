@@ -110,7 +110,7 @@ fun CurrenciesSection(){
     ) {
         Row (
             modifier = Modifier
-                .padding(16.dp)
+                .padding(start = 10.dp, end = 10.dp)
                 .animateContentSize()
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically

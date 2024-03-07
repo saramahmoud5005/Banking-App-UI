@@ -21,6 +21,10 @@ import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.bankingappui.ui.theme.BankingAppUITheme
+import com.example.bankingappuipractice.CardsSectionPractice
+import com.example.bankingappuipractice.CurrenciesSectionPractice
+import com.example.bankingappuipractice.FinanceSectionPractice
+import com.example.bankingappuipractice.WalletSectionPractice
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 class MainActivity : ComponentActivity() {
@@ -61,14 +65,20 @@ fun HomeScreen() {
         }
     ) {padding ->
         Column(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .fillMaxSize()
                 .padding(padding)
         ) {
-            WalletSection()
-            CardsSection()
+//            WalletSection()
+//            CardsSection()
+//            Spacer(modifier = Modifier.height(16.dp))
+//            FinanceSection()
+//            CurrenciesSection()
+            WalletSectionPractice()
+            CardsSectionPractice()
             Spacer(modifier = Modifier.height(16.dp))
-            FinanceSection()
-            CurrenciesSection()
+            FinanceSectionPractice()
+            CurrenciesSectionPractice()
         }
     }
 }
