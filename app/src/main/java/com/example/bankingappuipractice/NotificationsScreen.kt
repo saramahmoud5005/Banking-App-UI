@@ -29,6 +29,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -63,7 +64,7 @@ fun NotificationsScreen(){
 @SuppressLint("UnusedBoxWithConstraintsScope")
 @Composable
 fun NotificationsItem(notification:String){
-    var isVisible by remember{
+    var isVisible by rememberSaveable{
         mutableStateOf(false)
     }
 
@@ -111,7 +112,7 @@ fun NotificationsItem(notification:String){
                     modifier = Modifier.padding(start = 10.dp)
                 )
                 Icon(
-                    imageVector = iconState,
+                    imageVector = if(isVisible) Icons.Rounded.KeyboardArrowDown else Icons.Rounded.KeyboardArrowUp,
                     contentDescription = "Arrow",
                     modifier = Modifier.padding(end = 10.dp)
                 )

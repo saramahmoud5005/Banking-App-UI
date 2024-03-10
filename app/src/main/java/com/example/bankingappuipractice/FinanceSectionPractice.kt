@@ -1,6 +1,7 @@
 package com.example.bankingappuipractice
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -33,6 +34,7 @@ fun FinanceItemPractice(index:Int){
             .width(120.dp)
             .height(120.dp)
             .background(MaterialTheme.colorScheme.secondaryContainer)
+            .clickable {}
     ){
         Column (
             modifier = Modifier
