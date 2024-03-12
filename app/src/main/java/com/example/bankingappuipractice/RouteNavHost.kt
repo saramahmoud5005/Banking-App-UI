@@ -9,6 +9,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.bankingappui.BottomNavigationBar
+import com.example.bankingappui.MainActivity
 
 
 @Composable
@@ -17,9 +19,14 @@ fun RootNavHost(paddingValues : PaddingValues,navController: NavHostController){
 
     NavHost(
         navController = navController,
-        startDestination = Screen.Home.route,
+        startDestination = Screen.Login.route,
         modifier = Modifier.padding(paddingValues = paddingValues)
     ){
+        composable(Screen.Login.route){
+            LoginScreen {
+                navController.navigate(Screen.Home.route)
+            }
+        }
         composable(Screen.Home.route){
             HomeScreen()
         }

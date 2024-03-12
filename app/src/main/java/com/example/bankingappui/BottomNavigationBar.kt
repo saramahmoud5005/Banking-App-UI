@@ -1,6 +1,7 @@
 package com.example.bankingappui
 
 import android.graphics.drawable.Icon
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material.icons.Icons
@@ -17,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
@@ -49,13 +51,13 @@ val items = listOf(
 )
 
 @Composable
-fun BottomNavigationBar():NavHostController{
+fun BottomNavigationBar(navController: NavHostController):NavHostController{
 
     var navigationSelectedItem by remember {
         mutableStateOf(0)
     }
 
-    val navController = rememberNavController()
+//    val navController = rememberNavController()
 
     NavigationBar {
         Row (
@@ -85,5 +87,6 @@ fun BottomNavigationBar():NavHostController{
             }
         }
     }
+
     return navController
 }
