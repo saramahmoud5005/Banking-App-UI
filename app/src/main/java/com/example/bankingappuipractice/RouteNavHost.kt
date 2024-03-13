@@ -37,7 +37,13 @@ fun RootNavHost(paddingValues : PaddingValues,navController: NavHostController){
             NotificationsScreen()
         }
         composable(Screen.Account.route){
-            AccountScreen()
+            AccountScreen{
+                navController.navigate(Screen.Login.route){
+                    popUpTo(navController.graph.id){
+                        inclusive = true
+                    }
+                }
+            }
         }
     }
 }

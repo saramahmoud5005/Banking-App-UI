@@ -41,7 +41,7 @@ import com.example.bankingappui.ui.theme.PurpleStart
 
 @Preview
 @Composable
-fun AccountScreen(){
+fun AccountScreen(onClick:()->Unit){
 
     Column(
         modifier = Modifier
@@ -156,7 +156,9 @@ fun AccountScreen(){
             modifier = Modifier
                 .clip(RoundedCornerShape(10.dp))
                 .background(MaterialTheme.colorScheme.secondaryContainer)
-                .clickable {}
+                .clickable {
+                    onClick()
+                }
                 .width(300.dp)
                 .height(50.dp),
             contentAlignment = Alignment.Center,
